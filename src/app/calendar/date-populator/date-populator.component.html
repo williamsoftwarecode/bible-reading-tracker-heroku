@@ -1,0 +1,29 @@
+<table class="table">
+  <tr>
+    <td>S</td>
+    <td>M</td>
+    <td>T</td>
+    <td>W</td>
+    <td>Th</td>
+    <td>F</td>
+    <td>S</td>
+  </tr>
+  <tr>
+    <td *ngFor="let el of arrayOfDatesFirstWeek" class="select" (click)="onSelectDate(el)">{{ el }}</td>
+  </tr>
+    <tr>
+    <td *ngFor="let el of arrayOfDatesSecondWeek" class="select" (click)="onSelectDate(el)">{{ el }}</td>
+  </tr>
+    <tr>
+    <td *ngFor="let el of arrayOfDatesThirdWeek" class="select" (click)="onSelectDate(el)">{{ el }}</td>
+  </tr>
+    <tr>
+    <td *ngFor="let el of arrayOfDatesFourthWeek" class="select" (click)="onSelectDate(el)">{{ el }}</td>
+  </tr>
+    <tr>
+    <td *ngFor="let el of arrayOfDatesFifthWeek" class="select" (click)="onSelectDate(el)">{{ el }}</td>
+  </tr>
+    <tr>
+    <td *ngFor="let el of arrayOfDatesSixthWeek" class="select" (click)="onSelectDate(el)">{{ el }}</td>
+  </tr>
+</table>

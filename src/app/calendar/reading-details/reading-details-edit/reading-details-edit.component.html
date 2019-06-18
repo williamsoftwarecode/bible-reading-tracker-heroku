@@ -1,0 +1,59 @@
+<div class="row">
+	<div class="col-xs-12">
+    <form>
+      <div class="row">
+        <div class="col-sm-5 form-group">
+          <label for="book">Book</label>
+          <input 
+          type="text" 
+          id="book" 
+          class="form-control"
+          #bookInput>
+        </div>
+        <div class="col-sm-3 form-group">
+          <label for="chapter">Chapter</label>
+          <input 
+          type="number" 
+          id="chapter" 
+          class="form-control"
+          #chapterInput>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 btn-toolbar">
+          <button class="btn btn-success" type="submit" (click)="onAddChapter()">Add</button>
+          <button class="btn btn-danger" type="button">Delete</button>
+          <button class="btn btn-primary" type="button">Clear</button>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12 btn-toolbar">
+          <div appDropdown class="btn-group">
+            
+            <button 
+              type="button" 
+              class="btn btn-primary dropdown-toggle">
+              {{ bookSelected }} <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+              <li *ngFor="let elBook of otBooks"><a (click)="OnSelectBook(elBook)">{{ elBook }}</a></li>
+            </ul>
+            
+          </div>
+          <div appDropdown class="btn-group">
+                    <button 
+            type="button" 
+            class="btn btn-primary dropdown-toggle">
+            {{ chapterSelected }} <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+              <li *ngFor="let elChapter of bookChapters"><a (click)="OnSelectChapter(elChapter)">{{ elChapter }}</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </form>
+  </div>
+</div>

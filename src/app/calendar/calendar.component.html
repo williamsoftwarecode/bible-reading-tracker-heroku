@@ -1,0 +1,43 @@
+<div class="row">
+  <div class="col-md-7">
+    <div class="panel panel-default">
+      <!-- Default panel contents -->
+      <div class="panel-heading">
+        Calendar
+      </div>
+
+      <div appDropdown class="btn-group">
+        <button 
+          type="button" 
+          class="btn btn-primary dropdown-toggle">
+          {{ yearSelected }} <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+          <li *ngFor="let elYear of years"><a (click)="OnSelectYear(elYear)">{{ elYear }}</a></li>
+        </ul>
+      </div>
+
+      <div appDropdown class="btn-group">
+        <button 
+          type="button" 
+          class="btn btn-primary dropdown-toggle">
+          {{ monthSelected }} <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+          <li *ngFor="let elMonth of months"><a (click)="OnSelectMonth(elMonth)">{{ elMonth }}</a></li>
+        </ul>
+      </div>
+
+      <!-- TODO: Change onSelectDate() function to select date component -->
+
+      <!-- Table -->
+      <app-date-populator 
+      [inputYear]="yearSelected"
+      [inputMonth]="monthSelected">
+      </app-date-populator>
+    </div>
+  </div>     
+  <div class="col-md-5">
+    <app-reading-details></app-reading-details>
+  </div>
+</div>
