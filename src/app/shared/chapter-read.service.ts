@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class ChapterReadService {
-  uri = 'http://localhost:8080';
+  uri = 'http://bible-reading-tracker.herokuapp.com';
   constructor(private http: HttpClient) {
   }
   addIssue(title, responsible, description, severity) {
