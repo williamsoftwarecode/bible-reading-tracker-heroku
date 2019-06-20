@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+// import { Router } from '@angular/router';
 import { ChapterReadService } from '../shared/chapter-read.service';
 @Component({
   selector: 'app-create',
@@ -9,7 +9,7 @@ import { ChapterReadService } from '../shared/chapter-read.service';
 })
 export class CreateComponent implements OnInit {
   createForm: FormGroup;
-  constructor(private chapterReadService: ChapterReadService, private fb: FormBuilder, private router: Router) {
+  constructor(private chapterReadService: ChapterReadService, private fb: FormBuilder) {
     this.createForm = this.fb.group({
       title: ['', Validators.required],
       responsible: '',
@@ -19,7 +19,7 @@ export class CreateComponent implements OnInit {
   }
   addIssue(title, responsible, description, severity) {
     this.chapterReadService.addIssue(title, responsible, description, severity).subscribe(() => {
-      this.router.navigate(['/list']);
+      alert("addIssue()");
     });
   }
   ngOnInit() {

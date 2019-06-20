@@ -24,6 +24,7 @@ import { ReadingDetailsEditComponent } from './calendar/reading-details/reading-
 import { ChapterReadService } from './shared/chapter-read.service';
 import { HttpClientModule } from '@angular/common/http';
 import { CreateComponent } from './create/create.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   imports:      [ 
@@ -41,7 +42,8 @@ import { CreateComponent } from './create/create.component';
     MatTableModule,
     MatDividerModule,
     MatSnackBarModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule
   ],
   declarations: [ 
     AppComponent, 
