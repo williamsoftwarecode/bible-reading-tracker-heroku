@@ -177,6 +177,7 @@ export class DatePopulatorComponent implements OnInit {
       this.arrayOfDatesSixthWeek.push(null);
     }   
 
+    this.allWeeks = [];
     this.allWeeks.push(this.arrayOfDatesFirstWeek);
     this.allWeeks.push(this.arrayOfDatesSecondWeek);
     this.allWeeks.push(this.arrayOfDatesThirdWeek);
