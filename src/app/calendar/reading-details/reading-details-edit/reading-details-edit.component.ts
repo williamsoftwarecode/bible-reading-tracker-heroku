@@ -1,4 +1,6 @@
 import { Component, OnInit, ViewChild, Output, EventEmitter, ElementRef } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { ChapterReadService } from '../../../shared/chapter-read.service';
 import * as data from '../../../shared/ot-books.json';
 
 @Component({
@@ -24,7 +26,18 @@ export class ReadingDetailsEditComponent implements OnInit {
   bookSelected: string;
   chapterSelected: number;
 
-  constructor() { }
+  addForm: FormGroup;
+  constructor(private chapterReadService: ChapterReadService, private fb: FormBuilder) {
+    this.addForm = this.fb.group({
+      bookRead: ['', Validators.required],
+      chapterRead: '',
+    });
+  }
+  addIssue(title, responsible, description, severity) {
+    this.chapterReadService.addIssue(title, responsible, description, severity).subscribe(() => {
+      alert("addIssue()");
+    });
+  }
 
   ngOnInit() {
     let ot = (<any>data).books;
