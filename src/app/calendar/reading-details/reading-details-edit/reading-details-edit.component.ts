@@ -25,7 +25,7 @@ export class ReadingDetailsEditComponent implements OnInit {
 
   bookSelected: string;
   chapterSelected: number;
-
+  
   addForm: FormGroup;
   constructor(private chapterReadService: ChapterReadService, private fb: FormBuilder) {
     this.addForm = this.fb.group({
@@ -35,7 +35,7 @@ export class ReadingDetailsEditComponent implements OnInit {
   }
 
   // TODO
-  addIssue(bookRead, chapterRead) {
+  addIssue() {
     // this.chapterReadService.addIssue(title, responsible, description, severity).subscribe(() => {
     //   alert("addIssue()");
     // });
