@@ -27,7 +27,7 @@
       <mat-divider></mat-divider>
       <br><br>
       <button mat-raised-button color="accent" routerLink="/list">Back</button>&nbsp;
-      <button type="submit" (click)="addIssue(title.value, responsible.value, description.value, severity.value)" [disabled]="addForm.pristine || addForm.invalid" mat-raised-button color="primary">Save</button>
+      <button type="submit" (click)="addIssue(bookRead.value, chapterRead.value)" [disabled]="addForm.pristine || addForm.invalid" mat-raised-button color="primary">Save</button>
     </form>
   </mat-card>
 </div>

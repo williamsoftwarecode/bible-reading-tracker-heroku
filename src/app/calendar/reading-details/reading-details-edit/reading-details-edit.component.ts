@@ -33,6 +33,8 @@ export class ReadingDetailsEditComponent implements OnInit {
       chapterRead: '',
     });
   }
+
+  // TODO
   addIssue(title, responsible, description, severity) {
     this.chapterReadService.addIssue(title, responsible, description, severity).subscribe(() => {
       alert("addIssue()");
