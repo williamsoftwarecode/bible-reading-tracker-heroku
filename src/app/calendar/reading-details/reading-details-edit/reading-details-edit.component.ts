@@ -35,10 +35,10 @@ export class ReadingDetailsEditComponent implements OnInit {
   }
 
   // TODO
-  addIssue(title, responsible, description, severity) {
-    this.chapterReadService.addIssue(title, responsible, description, severity).subscribe(() => {
-      alert("addIssue()");
-    });
+  addIssue(bookRead, chapterRead) {
+    // this.chapterReadService.addIssue(title, responsible, description, severity).subscribe(() => {
+    //   alert("addIssue()");
+    // });
   }
 
   ngOnInit() {
