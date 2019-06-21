@@ -1,3 +1,47 @@
 .select {
     cursor:pointer;
 }
+
+table {
+    width: 100%;
+}
+
+td {
+    width: 10%;
+    text-align: center;
+    padding: 0;
+}
+
+th {
+    width: 10%;
+    text-align: center;
+    padding: 0;
+}
+
+th.mat-header-cell {
+    text-align: center;
+}
+
+th.mat-header-cell:first-of-type {
+    padding: 0;
+}
+
+th.mat-header-cell:last-of-type {
+    padding: 0;
+}
+
+td.mat-cell:first-of-type {
+    padding: 0;
+}
+
+th.mat-cell:first-of-type {
+    padding: 0;
+}
+
+td.mat-cell:last-of-type {
+    padding: 0;
+}
+
+th.mat-cell:last-of-type {
+    padding: 0;
+}

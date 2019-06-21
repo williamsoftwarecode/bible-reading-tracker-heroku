@@ -1,5 +1,4 @@
 import { Component, OnInit, Input, DoCheck } from '@angular/core';
-
 @Component({
   selector: 'app-date-populator',
   templateUrl: './date-populator.component.html',
@@ -18,6 +17,7 @@ export class DatePopulatorComponent implements OnInit {
   arrayOfDatesSixthWeek: number[] = [];
   numOfWeeksInMonth: number;
   numOfDaysInMonth: number;
+  allWeeks: number[][] = [];
 
   num: number;
   sNum: string;
@@ -30,8 +30,7 @@ export class DatePopulatorComponent implements OnInit {
   lastTwoDigitsOfYear: number;
   century: number;
 
-  
-
+  displayedColumns: string[] = ['Sun', 'Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat'];
   constructor() { }
 
   ngOnInit() {
@@ -177,5 +176,12 @@ export class DatePopulatorComponent implements OnInit {
     for (var i = this.arrayOfDatesSixthWeek.length; i < 7; i++) {
       this.arrayOfDatesSixthWeek.push(null);
     }   
+
+    this.allWeeks.push(this.arrayOfDatesFirstWeek);
+    this.allWeeks.push(this.arrayOfDatesSecondWeek);
+    this.allWeeks.push(this.arrayOfDatesThirdWeek);
+    this.allWeeks.push(this.arrayOfDatesFourthWeek);
+    this.allWeeks.push(this.arrayOfDatesFifthWeek);
+    this.allWeeks.push(this.arrayOfDatesSixthWeek);
   }
 }
