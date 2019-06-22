@@ -32,12 +32,16 @@
 
       <!-- Table -->
       <app-date-populator 
+      (onSelecteDateOnCalendar)="onDateSelectedOnCalendar($event)"
       [inputYear]="yearSelected"
       [inputMonth]="monthSelected">
       </app-date-populator>
     </div>
   </div>     
   <div class="col-md-5">
-    <app-reading-details></app-reading-details>
+    <app-reading-details
+    [inputDate]="dateSelected"
+    [inputYear]="yearSelected"
+    [inputMonth]="monthSelected"></app-reading-details>
   </div>
 </div>

@@ -11,6 +11,7 @@ export class CalendarComponent implements OnInit {
 
   yearSelected: number = new Date().getFullYear();
   monthSelected: string = this.months[new Date().getMonth()];
+  dateSelected: number;
 
   constructor() { }
 
@@ -27,5 +28,9 @@ export class CalendarComponent implements OnInit {
 
   OnSelectMonth(month: string) {
     this.monthSelected = month;
+  }
+
+  onDateSelectedOnCalendar(fullDate: {date: number, month: string, year: number}) {
+    this.dateSelected = fullDate.date;
   }
 }

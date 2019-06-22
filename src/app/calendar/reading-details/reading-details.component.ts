@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Chapter } from '../../shared/chapter.model'
 
 @Component({
@@ -7,6 +7,10 @@ import { Chapter } from '../../shared/chapter.model'
   styleUrls: ['./reading-details.component.css']
 })
 export class ReadingDetailsComponent implements OnInit {
+  @Input('inputYear') inputYear: number;
+  @Input('inputMonth') inputMonth: string;
+  @Input('inputDate') inputDate: number;
+
   chaptersRead: Chapter[] = [
     new Chapter('Genesis', 1)
   ];

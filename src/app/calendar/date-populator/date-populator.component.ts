@@ -1,10 +1,11 @@
-import { Component, OnInit, Input, DoCheck } from '@angular/core';
+import { Component, OnInit, Input, DoCheck, Output, EventEmitter } from '@angular/core';
 @Component({
   selector: 'app-date-populator',
   templateUrl: './date-populator.component.html',
   styleUrls: ['./date-populator.component.css']
 })
 export class DatePopulatorComponent implements OnInit {
+  @Output() onSelecteDateOnCalendar = new EventEmitter<{date: number, month: string, year: number}>();
   @Input('inputYear') inputYear: number;
   @Input('inputMonth') inputMonth: string;
 
@@ -189,5 +190,16 @@ export class DatePopulatorComponent implements OnInit {
     this.allWeeks.push(this.arrayOfDatesFourthWeek);
     this.allWeeks.push(this.arrayOfDatesFifthWeek);
     this.allWeeks.push(this.arrayOfDatesSixthWeek);
+
+    // Reset date if more than the number of days in month 
+    if (this.dateSelected > this.numOfDaysInMonth) {
+      this.dateSelected = undefined;
+    }
+
+    this.onSelecteDateOnCalendar.emit({
+      date: this.dateSelected,
+      month: this.inputMonth,
+      year: this.inputYear
+    });
   }
 }
