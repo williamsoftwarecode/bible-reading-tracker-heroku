@@ -59,3 +59,7 @@ th.mat-cell:last-of-type {
     background-size: 100%;
     transition: background 0s;
   }
+
+.selected {
+    background-color: #6eb9f7;
+}

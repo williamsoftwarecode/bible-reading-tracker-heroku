@@ -38,6 +38,7 @@
             <td mat-cell 
             [class.ripple]="allWeeks[0] !== null"
             [class.select]="allWeeks[0] !== null"
+            [class.selected]="allWeeks[0] !== dateSelected"
             (click)="onSelectDate(allWeeks[0])" 
             *matCellDef="let allWeeks"> 
             {{ allWeeks[0] }} </td>
@@ -49,6 +50,7 @@
             <td mat-cell 
             [class.ripple]="allWeeks[1] !== null"
             [class.select]="allWeeks[1] !== null" 
+            [class.selected]="allWeeks[1] !== dateSelected"
             (click)="onSelectDate(allWeeks[1])" 
             *matCellDef="let allWeeks"> 
             {{ allWeeks[1] }} </td>
@@ -60,6 +62,7 @@
             <td mat-cell 
             [class.ripple]="allWeeks[2] !== null"
             [class.select]="allWeeks[2] !== null" 
+            [class.selected]="allWeeks[2] !== dateSelected"
             (click)="onSelectDate(allWeeks[2])" 
             *matCellDef="let allWeeks"> 
             {{ allWeeks[2] }} </td>
@@ -71,6 +74,7 @@
             <td mat-cell 
             [class.ripple]="allWeeks[3] !== null"
             [class.select]="allWeeks[3] !== null" 
+            [class.selected]="allWeeks[3] !== dateSelected"
             (click)="onSelectDate(allWeeks[3])" 
             *matCellDef="let allWeeks"> 
             {{ allWeeks[3] }} </td>
@@ -82,6 +86,7 @@
             <td mat-cell 
             [class.ripple]="allWeeks[4] !== null"
             [class.select]="allWeeks[4] !== null" 
+            [class.selected]="allWeeks[4] !== dateSelected"
             (click)="onSelectDate(allWeeks[4])" 
             *matCellDef="let allWeeks"> 
             {{ allWeeks[4] }} </td>
@@ -93,6 +98,7 @@
             <td mat-cell 
             [class.ripple]="allWeeks[5] !== null"
             [class.select]="allWeeks[5] !== null"
+            [class.selected]="allWeeks[5] !== dateSelected"
             (click)="onSelectDate(allWeeks[5])"  
             *matCellDef="let allWeeks"> 
             {{ allWeeks[5] }} </td>
@@ -104,6 +110,7 @@
             <td mat-cell 
             [class.ripple]="allWeeks[6] !== null"
             [class.select]="allWeeks[6] !== null"
+            [class.selected]="allWeeks[6] !== dateSelected"
             (click)="onSelectDate(allWeeks[6])"  
             *matCellDef="let allWeeks"> 
             {{ allWeeks[6] }} </td>

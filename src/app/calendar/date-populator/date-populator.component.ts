@@ -8,6 +8,8 @@ export class DatePopulatorComponent implements OnInit {
   @Input('inputYear') inputYear: number;
   @Input('inputMonth') inputMonth: string;
 
+  dateSelected: number;
+
   arrayOfDates: number[] = [];
   arrayOfDatesFirstWeek: number[] = [];
   arrayOfDatesSecondWeek: number[] = [];
@@ -39,6 +41,7 @@ export class DatePopulatorComponent implements OnInit {
   onSelectDate(date: number) {
     if (date !== null) {
       alert(date);
+      this.dateSelected = date;
     }
   }
 
