@@ -13,6 +13,7 @@ import { MatToolbarModule,
   MatTableModule, 
   MatDividerModule, 
   MatSnackBarModule } from '@angular/material';
+  import {CommonModule} from "@angular/common"
 
 import { AppComponent } from './app.component';
 import { CalendarComponent } from './calendar/calendar.component';
@@ -43,7 +44,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatDividerModule,
     MatSnackBarModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    CommonModule
   ],
   declarations: [ 
     AppComponent, 
