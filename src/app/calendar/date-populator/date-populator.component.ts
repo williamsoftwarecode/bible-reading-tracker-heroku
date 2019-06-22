@@ -37,7 +37,9 @@ export class DatePopulatorComponent implements OnInit {
   }
 
   onSelectDate(date: number) {
-    alert(date);
+    if (date !== null) {
+      alert(date);
+    }
   }
 
   ngDoCheck() {
