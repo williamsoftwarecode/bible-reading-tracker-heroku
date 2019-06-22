@@ -1,7 +1,16 @@
 <div class="row">
   <div class="col-xs-10">
-    <p> {{ inputDate }} {{ inputMonth }} {{ inputYear }} </p>
-    <app-reading-details-edit (chapterReadAdded)="onAddChapterRead($event)"></app-reading-details-edit>
+      <div>
+        <mat-card class="mat-elevation-z8">
+          <section class="mat-typography">
+            <h3>Add Daily Reading Details</h3>
+            <h2> {{ inputDate }} {{ inputMonth }} {{ inputYear }} </h2>
+          </section>
+          <mat-divider></mat-divider>
+          <br>
+          <app-reading-details-edit (chapterReadAdded)="onAddChapterRead($event)"></app-reading-details-edit>
+        </mat-card>
+      </div>
     <hr>
     <ul class="list-group">
       <a 

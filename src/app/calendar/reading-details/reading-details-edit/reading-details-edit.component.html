@@ -1,10 +1,4 @@
-<div>
-  <mat-card class="mat-elevation-z8">
-    <section class="mat-typography">
-      <h3>Add Daily Reading Details</h3>
-    </section>
-    <mat-divider></mat-divider>
-    <br>
+
     <form [formGroup]="addForm" class="add-form">
       <mat-form-field>
         <mat-select placeholder="Book" formControlName="bookRead" #severity>
@@ -30,8 +24,7 @@
       <button type="submit" (click)="addIssue()" [disabled]="addForm.pristine || addForm.invalid" mat-raised-button color="primary">Save</button>
       <!-- bookRead.value, chapterRead.value -->
     </form>
-  </mat-card>
-</div>
+
 
 <br>
 
