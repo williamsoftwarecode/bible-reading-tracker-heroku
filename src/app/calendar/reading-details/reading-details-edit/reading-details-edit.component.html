@@ -7,7 +7,7 @@
     <br>
     <form [formGroup]="addForm" class="add-form">
       <mat-form-field>
-        <mat-select placeholder="Select Book" formControlName="bookRead" #severity>
+        <mat-select placeholder="Book" formControlName="bookRead" #severity>
           <mat-option 
           *ngFor="let elBook of otBooks" 
           value="elBook" 
@@ -16,7 +16,7 @@
         </mat-select>
       </mat-form-field>
       <mat-form-field>
-        <mat-select placeholder="Select Chapter" formControlName="chapterRead" #severity>
+        <mat-select placeholder="Chapter" formControlName="chapterRead" #severity>
           <mat-option 
           *ngFor="let elChapter of bookChapters" 
           value="elChapter" 
