@@ -9,9 +9,10 @@ export class CalendarComponent implements OnInit {
   years: number[] = [2020, 2019, 2018];
   months: string[] = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
-  yearSelected: number = new Date().getFullYear();
-  monthSelected: string = this.months[new Date().getMonth()];
-  dateSelected: number;
+  today = new Date();
+  yearSelected: number = this.today.getFullYear();
+  monthSelected: string = this.months[this.today.getMonth()];
+  dateSelected: number = this.today.getDate();
 
   constructor() { }
 

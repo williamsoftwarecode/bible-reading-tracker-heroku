@@ -8,6 +8,7 @@ export class DatePopulatorComponent implements OnInit {
   @Output() onSelecteDateOnCalendar = new EventEmitter<{date: number, month: string, year: number}>();
   @Input('inputYear') inputYear: number;
   @Input('inputMonth') inputMonth: string;
+  @Input('inputDate') inputDate: number;
 
   dateSelected: number;
 
@@ -37,6 +38,7 @@ export class DatePopulatorComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.dateSelected = this.inputDate;
   }
 
   onSelectDate(date: number) {

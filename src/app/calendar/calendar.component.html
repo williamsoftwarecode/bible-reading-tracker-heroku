@@ -34,14 +34,15 @@
       <app-date-populator 
       (onSelecteDateOnCalendar)="onDateSelectedOnCalendar($event)"
       [inputYear]="yearSelected"
-      [inputMonth]="monthSelected">
+      [inputMonth]="monthSelected"
+      [inputDate]="dateSelected">
       </app-date-populator>
     </div>
   </div>     
   <div class="col-md-5">
     <app-reading-details
-    [inputDate]="dateSelected"
     [inputYear]="yearSelected"
-    [inputMonth]="monthSelected"></app-reading-details>
+    [inputMonth]="monthSelected"
+    [inputDate]="dateSelected"></app-reading-details>
   </div>
 </div>
