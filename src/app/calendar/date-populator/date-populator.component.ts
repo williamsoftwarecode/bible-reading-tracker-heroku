@@ -40,7 +40,7 @@ export class DatePopulatorComponent implements OnInit {
 
   onSelectDate(date: number) {
     if (date !== null) {
-      alert(date);
+      // alert(date);
       this.dateSelected = date;
     }
   }
