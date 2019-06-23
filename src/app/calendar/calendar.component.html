@@ -6,7 +6,7 @@
         <h4>Calendar</h4>
       </div>
 
-      <div appDropdown class="btn-group">
+      <!-- <div appDropdown class="btn-group">
         <button 
           type="button" 
           class="btn btn-primary dropdown-toggle">
@@ -26,8 +26,30 @@
         <ul class="dropdown-menu">
           <li *ngFor="let elMonth of months"><a (click)="OnSelectMonth(elMonth)">{{ elMonth }}</a></li>
         </ul>
-      </div>
+      </div> -->
 
+      <mat-card>
+        <button mat-raised-button [matMenuTriggerFor]="menuYear" color="primary">{{ yearSelected }}<span class="caret"></span></button>
+        <mat-menu #menuYear="matMenu">
+          <button 
+          mat-menu-item 
+          *ngFor="let elYear of years" 
+          (click)="OnSelectYear(elYear)">
+          {{ elYear }}</button>
+        </mat-menu>
+
+        <div class="divider"></div>
+
+        <button mat-raised-button [matMenuTriggerFor]="menuMonth" color="primary">{{ monthSelected }}<span class="caret"></span></button>
+        <mat-menu #menuMonth="matMenu">
+          <button 
+          mat-menu-item 
+          *ngFor="let elMonth of months" 
+          (click)="OnSelectMonth(elMonth)">
+          {{ elMonth }}</button>
+        </mat-menu>
+      </mat-card>
+      
       <!-- TODO: Change onSelectDate() function to select date component -->
 
       <!-- Table -->

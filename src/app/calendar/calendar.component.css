@@ -5,3 +5,14 @@
 ul li {
     cursor:pointer;
 }
+
+.mat-menu-item{
+    line-height:30px;
+    height:30px;
+  }
+
+.divider{
+    width:5px;
+    height:auto;
+    display:inline-block;
+}
