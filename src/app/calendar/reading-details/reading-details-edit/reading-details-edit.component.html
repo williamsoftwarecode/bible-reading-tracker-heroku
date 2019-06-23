@@ -1,10 +1,16 @@
 
     <form [formGroup]="addForm" class="add-form">
       <mat-form-field>
-        <mat-select placeholder="Book" formControlName="bookRead" #severity>
+        <mat-select placeholder="Book" [formControl]="bookCtrl" #bookSelect>
+          <mat-option>
+            <ngx-mat-select-search 
+            [formControl]="bookFilterCtrl"
+            [placeholderLabel]="'Search'"
+            [noEntriesFoundLabel]="'No book found'"></ngx-mat-select-search>
+          </mat-option>
           <mat-option 
-          *ngFor="let elBook of otBooks" 
-          value="elBook" 
+          *ngFor="let elBook of filteredBooks | async" 
+          [value]="elBook" 
           (click)="OnSelectBook(elBook)">
           {{ elBook }}</mat-option>
         </mat-select>

@@ -14,7 +14,8 @@ import { MatToolbarModule,
   MatDividerModule, 
   MatSnackBarModule,
   MatMenuModule } from '@angular/material';
-import { CommonModule } from '@angular/common'
+import { CommonModule } from '@angular/common';
+import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
 
 import { AppComponent } from './app.component';
 import { CalendarComponent } from './calendar/calendar.component';
@@ -47,7 +48,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     CommonModule,
-    MatMenuModule
+    MatMenuModule,
+    NgxMatSelectSearchModule
   ],
   declarations: [ 
     AppComponent, 
