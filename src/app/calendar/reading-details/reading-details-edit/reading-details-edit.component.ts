@@ -1,9 +1,10 @@
-import { Component, OnInit, ViewChild, Output, EventEmitter, ElementRef, OnDestroy, AfterViewInit } from '@angular/core';
+import { Component, OnInit, ViewChild, Output, EventEmitter, ElementRef, OnDestroy, AfterViewInit, Input } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { ReplaySubject, Subject } from 'rxjs';
 import { take, takeUntil } from 'rxjs/operators';
 import { MatSelect } from '@angular/material';
 import { ChapterReadService } from '../../../shared/chapter-read.service';
+import { ChapterRead } from '../../../shared/chapter-read.model'
 import * as data from '../../../shared/ot-books.json';
 
 @Component({
@@ -38,6 +39,9 @@ export class ReadingDetailsEditComponent implements OnInit, OnDestroy, AfterView
   bookSelected: string;
   chapterSelected: number;
   
+  chaptersRead: ChapterRead[] = [];
+  displayedColumns = ['bookColumn', 'chapterColumn', 'actions'];
+
   addForm: FormGroup;
 
   /** control for the selected book */
@@ -60,10 +64,23 @@ export class ReadingDetailsEditComponent implements OnInit, OnDestroy, AfterView
   }
 
   // TODO
-  addIssue() {
-    // this.chapterReadService.addIssue(title, responsible, description, severity).subscribe(() => {
-    //   alert("addIssue()");
-    // });
+  addChapterRead() {
+    this.convertToDateObject();
+    alert(this.dateObject);
+
+    this.chapterReadService.addChapterRead(this.dateObject, this.bookSelected, this.chapterSelected).subscribe(() => {
+      console.log("addIssue()");
+    });
+  }
+
+  fetchChapterRead() {
+    this.chapterReadService
+    .getIssues()
+    .subscribe((data: ChapterRead[]) => {
+      this.chaptersRead = data;
+      console.log('Data requested ... ');
+      console.log(this.chaptersRead);
+    });
   }
 
   ngOnInit() {
@@ -97,6 +114,8 @@ export class ReadingDetailsEditComponent implements OnInit, OnDestroy, AfterView
       .subscribe(() => {
         this.filterBooks();
       });
+
+      this.fetchChapterRead();
   }
 
   ngAfterViewInit() {
@@ -163,6 +182,8 @@ export class ReadingDetailsEditComponent implements OnInit, OnDestroy, AfterView
       book: this.bookSelected,
       chapter: this.chapterSelected
     });
+    this.addChapterRead();
+  }
 
   convertToDateObject() {
     // Convert month to monthNum
