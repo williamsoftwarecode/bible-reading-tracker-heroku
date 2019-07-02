@@ -17,6 +17,14 @@ export class ReadingDetailsEditComponent implements OnInit, OnDestroy, AfterView
   @ViewChild('bookSelect', {static: true}) bookSelect: MatSelect;
   @Output() chapterReadAdded = new EventEmitter<{book: string, chapter: number}>();
 
+  @Input('inputYear') inputYear: number;
+  @Input('inputMonth') inputMonth: string;
+  @Input('inputDate') inputDate: number;
+
+  // Used for storing date object
+  dateObject: Date;
+  monthNum: number;
+
   // Array of books in OT
   otBooks: string[] = [];
   // Array of chapters in the books in OT
@@ -155,5 +163,63 @@ export class ReadingDetailsEditComponent implements OnInit, OnDestroy, AfterView
       book: this.bookSelected,
       chapter: this.chapterSelected
     });
+
+  convertToDateObject() {
+    // Convert month to monthNum
+    switch(this.inputMonth) { 
+      case "January": { 
+        this.monthNum=0;
+        break; 
+      } 
+      case "February": { 
+        this.monthNum=1;
+        break; 
+      } 
+      case "March": { 
+        this.monthNum=2; 
+        break; 
+      } 
+      case "April": { 
+        this.monthNum=3; 
+        break; 
+      } 
+      case "May": { 
+        this.monthNum=4; 
+        break; 
+      } 
+      case "June": { 
+        this.monthNum=5; 
+        break; 
+      } 
+      case "July": { 
+        this.monthNum=6;
+        break; 
+      } 
+      case "August": { 
+        this.monthNum=7; 
+        break; 
+      } 
+      case "September": { 
+        this.monthNum=8; 
+        break; 
+      } 
+      case "October": { 
+        this.monthNum=9; 
+        break; 
+      } 
+      case "November": { 
+        this.monthNum=10; 
+        break; 
+      } 
+      case "December": { 
+        this.monthNum=11; 
+        break; 
+      } 
+      default: { 
+          ; 
+          break; 
+      } 
+    } 
+    this.dateObject = new Date(Date.UTC(this.inputYear, this.monthNum, this.inputDate));
   }
 }

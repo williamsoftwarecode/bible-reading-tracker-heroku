@@ -8,7 +8,11 @@
           </section>
           <mat-divider></mat-divider>
           <br>
-          <app-reading-details-edit (chapterReadAdded)="onAddChapterRead($event)"></app-reading-details-edit>
+          <app-reading-details-edit 
+          [inputDate]="inputDate"
+          [inputMonth]="inputMonth"
+          [inputYear]="inputYear"
+          (chapterReadAdded)="onAddChapterRead($event)"></app-reading-details-edit>
         </mat-card>
       </div>
     <hr>
