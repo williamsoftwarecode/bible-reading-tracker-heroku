@@ -1,9 +1,10 @@
-<app-header></app-header>
+<app-header (featureSelected)="onFeatureSelected($event)"></app-header>
 
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <app-calendar></app-calendar>
+      <app-calendar *ngIf="loadedFeature === 'calendar'"></app-calendar>
+      <app-history *ngIf="loadedFeature === 'history'"></app-history>
     </div>
   </div>
 </div>

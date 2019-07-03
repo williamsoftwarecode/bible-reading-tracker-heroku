@@ -28,6 +28,7 @@ import { ChapterReadService } from './shared/chapter-read.service';
 import { HttpClientModule } from '@angular/common/http';
 import { CreateComponent } from './create/create.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HistoryComponent } from './history/history.component';
 
 @NgModule({
   imports:      [ 
@@ -59,7 +60,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     DropdownDirective, 
     ReadingDetailsComponent, 
     ReadingDetailsEditComponent, 
-    CreateComponent 
+    CreateComponent, 
+    HistoryComponent 
   ],
   providers:    [ ChapterReadService ], 
   bootstrap:    [ AppComponent ]
