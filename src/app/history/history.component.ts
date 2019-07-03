@@ -25,8 +25,16 @@ export class HistoryComponent implements OnInit {
     .subscribe((data: ChapterRead[]) => {
       this.chaptersRead = data;
       console.log('Data requested ... ');
+      
+      for(var i=0; i<this.chaptersRead.length; i++) {
+        this.chaptersRead[i].date = this.convertStringToDate(this.chaptersRead[i].date);
+      }
+
       console.log(this.chaptersRead);
     });
   }
 
+  convertStringToDate(dateString: Date) {
+    return new Date(dateString);
+  }
 }
