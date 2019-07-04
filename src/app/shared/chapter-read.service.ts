@@ -31,7 +31,7 @@ export class ChapterReadService {
     };
     return this.http.post(`${this.uri}/issues/update/${title}`, issue);
   }
-  deleteIssue(id) {
-    return this.http.get(`${this.uri}/issues/delete/${id}`);
+  deleteIssue(date) {
+    return this.http.get(`${this.uri}/issues/delete/${encodeURIComponent(date.toISOString())}`);
   }
 }

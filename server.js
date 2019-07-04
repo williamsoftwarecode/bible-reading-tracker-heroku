@@ -25,7 +25,7 @@ router.route('/date/add').post((req, res) => {
     db.collection('date').get()
     .then((snapshot) => {
         snapshot.forEach((doc) => {
-            console.log(doc.id, '=>', doc.data());
+            // console.log(doc.id, '=>', doc.data());
         });
     })
 
@@ -62,7 +62,7 @@ router.route('/issues').get((req, res) => {
     db.collection('date').get()
         .then(snapshot => {
             snapshot.forEach(doc => {
-              console.log(doc.id, '=>', doc.data());
+            //   console.log(doc.id, '=>', doc.data());
             });
             var docs = snapshot.docs.map(doc => doc.data());
             res.end(JSON.stringify(docs));
@@ -71,14 +71,14 @@ router.route('/issues').get((req, res) => {
             console.log('Error getting documents', err);
           });
 });
-router.route('/issues/:id').get((req, res) => {
+// router.route('/issues/:id').get((req, res) => {
     // Issue.findById(req.params.id, (err, issue) => {
     //     if (err)
     //         console.log(err);
     //     else
     //         res.json(issue);
     // })
-});
+// });
 router.route('/issues/update/:title').post((req, res) => {
     // Issue.findById(req.params.id, (err, issue) => {
     //     if (!issue)
@@ -97,7 +97,16 @@ router.route('/issues/update/:title').post((req, res) => {
     //     }
     // });
 });
-router.route('/issues/delete/:id').get((req, res) => {
+router.route('/issues/delete/:date').get((req, res) => {
+    // console.log(decodeURIComponent(req.params.date));
+    db.collection('date').doc(decodeURIComponent(req.params.date))
+    .delete()
+    .then(usersRef => {
+        res.status(200).json({'date': 'Deleted successfully'}); 
+    })
+    .catch(err => {
+        res.status(400).send('Failed to delete');
+    });;
     // Issue.findByIdAndRemove({_id: req.params.id}, (err, issue) => {
     //     if (err)
     //         res.json(err);

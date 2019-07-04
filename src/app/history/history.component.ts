@@ -34,6 +34,14 @@ export class HistoryComponent implements OnInit {
     });
   }
 
+  deleteDate(dateToDelete: Date) {
+    this.chapterReadService
+    .deleteIssue(dateToDelete)
+    .subscribe(() => {
+      this.fetchChapterRead();
+    });
+  }
+
   convertStringToDate(dateString: Date) {
     return new Date(dateString);
   }
