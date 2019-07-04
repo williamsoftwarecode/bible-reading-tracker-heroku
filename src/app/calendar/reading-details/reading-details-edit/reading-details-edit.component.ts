@@ -178,6 +178,7 @@ export class ReadingDetailsEditComponent implements OnInit, OnDestroy, AfterView
     for(var i=0; i<this.numChaptersOfSelected; i++){
       this.bookChapters[i]=i+1;
     }
+    this.chapterSelected = 1;
   }
 
   OnSelectChapter(chapter: number) {
