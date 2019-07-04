@@ -71,14 +71,22 @@ router.route('/issues').get((req, res) => {
             console.log('Error getting documents', err);
           });
 });
-// router.route('/issues/:id').get((req, res) => {
-    // Issue.findById(req.params.id, (err, issue) => {
-    //     if (err)
-    //         console.log(err);
-    //     else
-    //         res.json(issue);
-    // })
-// });
+router.route('/date/:date').get((req, res) => {
+    console.log("ChaptersReadByDate");
+    console.log(decodeURIComponent(req.params.date));
+    db.collection('date').doc(decodeURIComponent(req.params.date)).get()
+        .then(doc => {
+            if (!doc.exists) {
+              console.log('No such document!');
+            } else {
+              res.end(JSON.stringify(doc.data()));
+              console.log('Document data:', doc.data());
+            }
+          })
+          .catch(err => {
+            console.log('Error getting document', err);
+          });
+});
 router.route('/issues/update/:title').post((req, res) => {
     // Issue.findById(req.params.id, (err, issue) => {
     //     if (!issue)

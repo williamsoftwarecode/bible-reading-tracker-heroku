@@ -18,8 +18,8 @@ export class ChapterReadService {
   getIssues() {
     return this.http.get(`${this.uri}/issues`);
   }
-  getIssueById(id) {
-    return this.http.get(`${this.uri}/issues/${id}`);
+  getChaptersReadByDate(date) {
+    return this.http.get(`${this.uri}/date/${encodeURIComponent(date.toISOString())}`);
   }
   updateIssue(id, title, responsible, description, severity, status) {
     const issue = {

@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, Output, EventEmitter, ElementRef, OnDestroy, AfterViewInit, Input } from '@angular/core';
+import { Component, OnInit, ViewChild, Output, EventEmitter, ElementRef, OnDestroy, AfterViewInit, Input, OnChanges } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { ReplaySubject, Subject } from 'rxjs';
 import { take, takeUntil } from 'rxjs/operators';
@@ -40,7 +40,7 @@ export class ReadingDetailsEditComponent implements OnInit, OnDestroy, AfterView
   chapterSelected: number;
   
   chaptersRead: ChapterRead[] = [];
-  displayedColumns = ['bookColumn', 'chapterColumn', 'actions'];
+  displayedColumns = ['dateColumn', 'bookColumn', 'chapterColumn', 'actions'];
 
   addForm: FormGroup;
 
@@ -66,20 +66,25 @@ export class ReadingDetailsEditComponent implements OnInit, OnDestroy, AfterView
   // TODO
   addChapterRead() {
     this.convertToDateObject();
-    alert(this.dateObject);
+    // alert(this.dateObject);
 
     this.chapterReadService.addChapterRead(this.dateObject, this.bookSelected, this.chapterSelected).subscribe(() => {
       console.log("addIssue()");
     });
   }
 
-  fetchChapterRead() {
+  fetchChapterReadByDate() {
+    this.chaptersRead = [];
+    this.convertToDateObject();
     this.chapterReadService
-    .getIssues()
-    .subscribe((data: ChapterRead[]) => {
-      this.chaptersRead = data;
-      console.log('Data requested ... ');
-      console.log(this.chaptersRead);
+    .getChaptersReadByDate(this.dateObject)
+    .subscribe((data: ChapterRead) => {
+      this.chaptersRead.push(data);
+      for(var i=0; i<this.chaptersRead.length; i++) {
+        this.chaptersRead[i].date = this.convertStringToDate(this.chaptersRead[i].date);
+      }
+      // console.log('Data requested ... ');
+      // console.log(this.chaptersRead);
     });
   }
 
@@ -115,7 +120,7 @@ export class ReadingDetailsEditComponent implements OnInit, OnDestroy, AfterView
         this.filterBooks();
       });
 
-      this.fetchChapterRead();
+    // this.fetchChapterReadByDate();
   }
 
   ngAfterViewInit() {
@@ -125,6 +130,10 @@ export class ReadingDetailsEditComponent implements OnInit, OnDestroy, AfterView
   ngOnDestroy() {
     this._onDestroy.next();
     this._onDestroy.complete();
+  }
+
+  ngOnChanges() {
+    this.fetchChapterReadByDate();
   }
 
   /**
@@ -242,5 +251,9 @@ export class ReadingDetailsEditComponent implements OnInit, OnDestroy, AfterView
       } 
     } 
     this.dateObject = new Date(Date.UTC(this.inputYear, this.monthNum, this.inputDate));
+  }
+  
+  convertStringToDate(dateString: Date) {
+    return new Date(dateString);
   }
 }
