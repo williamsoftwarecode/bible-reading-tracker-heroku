@@ -195,7 +195,7 @@ export class DatePopulatorComponent implements OnInit {
 
     // Reset date if more than the number of days in month 
     if (this.dateSelected > this.numOfDaysInMonth) {
-      this.dateSelected = undefined;
+      this.dateSelected = 1;
     }
 
     this.onSelecteDateOnCalendar.emit({
