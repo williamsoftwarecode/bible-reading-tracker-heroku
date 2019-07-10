@@ -24,17 +24,17 @@
           {{ elChapter }}</mat-option>
         </mat-select>
       </mat-form-field>
-      <mat-divider></mat-divider>
-      <br><br>
-      <button mat-raised-button color="accent" routerLink="/list">Back</button>&nbsp;
-      <button type="submit" (click)="addIssue()" [disabled]="addForm.pristine || addForm.invalid" mat-raised-button color="primary">Save</button>
+      <!-- <mat-divider></mat-divider> -->
+      <!-- <br><br> -->
+      <hr>
+      <button type="submit" (click)="onAddChapter()" mat-raised-button color="primary">Save</button>
+      <!-- <button mat-raised-button color="accent" routerLink="/list">Back</button>&nbsp; -->
       <!-- bookRead.value, chapterRead.value -->
     </form>
 
-
 <br>
 
-<div class="row">
+<!-- <div class="row">
 	<div class="col-xs-12">
     <form>
       <div class="row">
@@ -92,4 +92,23 @@
 
     </form>
   </div>
-</div>
+</div> -->
+
+
+<mat-divider></mat-divider>
+<br>
+<section class="mat-typography">
+  <h3>Chapters Read: </h3>
+</section>
+<ul class="list-group"
+*ngFor="let cRead of chaptersRead">
+  <a 
+    class="list-group-item" 
+    style="cursor: pointer"
+    *ngFor="let element of cRead.read">
+    {{ element }}
+
+    </a>
+</ul>
+
+  <!-- <p *ngFor="let element of chaptersRead">{{ element.date |  date:'dd MMMM yyyy'}} {{ element.read }} {{ element.bookSelected }} {{ element.chapterSelected }}</p> -->

@@ -70,6 +70,7 @@ export class ReadingDetailsEditComponent implements OnInit, OnDestroy, AfterView
 
     this.chapterReadService.addChapterRead(this.dateObject, this.bookSelected, this.chapterSelected).subscribe(() => {
       console.log("addIssue()");
+      this.fetchChapterReadByDate();
     });
   }
 
@@ -171,6 +172,7 @@ export class ReadingDetailsEditComponent implements OnInit, OnDestroy, AfterView
     console.log(this.filteredBooks);
   }
 
+  // Click - UI
   OnSelectBook(book: string) {
     this.bookSelected = book;
     this.numChaptersOfSelected=this.otChapters[this.otBooks.indexOf(book)];
@@ -181,10 +183,12 @@ export class ReadingDetailsEditComponent implements OnInit, OnDestroy, AfterView
     this.chapterSelected = 1;
   }
 
+  // Click - UI
   OnSelectChapter(chapter: number) {
     this.chapterSelected = chapter;
   }
 
+  // Click - UI
   onAddChapter() {
     this.chapterReadAdded.emit({
       // book: this.bookInputRef.nativeElement.value,
