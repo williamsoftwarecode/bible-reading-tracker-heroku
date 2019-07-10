@@ -77,6 +77,7 @@ router.route('/date/:date').get((req, res) => {
     db.collection('date').doc(decodeURIComponent(req.params.date)).get()
         .then(doc => {
             if (!doc.exists) {
+              res.end(JSON.stringify({}));
               console.log('No such document!');
             } else {
               res.end(JSON.stringify(doc.data()));
