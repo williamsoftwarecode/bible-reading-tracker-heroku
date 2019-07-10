@@ -45,11 +45,15 @@ export class DatePopulatorComponent implements OnInit {
     if (date !== null) {
       // alert(date);
       this.dateSelected = date;
+      this.processDates();
     }
   }
 
   ngDoCheck() {
+    this.processDates();
+  }
 
+  processDates() {
     // Convert year to digits to calculate century and lastTwoDigitsOfYear
     this.num = this.inputYear;
     this.sNum = this.num.toString();
