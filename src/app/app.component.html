@@ -4,6 +4,7 @@
   <div class="row">
     <div class="col-md-12">
       <app-calendar *ngIf="loadedFeature === 'calendar'"></app-calendar>
+      <app-progress-bar *ngIf="loadedFeature === 'view-chart'"></app-progress-bar>
       <app-history *ngIf="loadedFeature === 'history'"></app-history>
     </div>
   </div>

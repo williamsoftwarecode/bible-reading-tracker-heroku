@@ -16,6 +16,7 @@ import { MatToolbarModule,
   MatMenuModule } from '@angular/material';
 import { CommonModule } from '@angular/common';
 import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
+import {ProgressBarModule} from "angular-progress-bar";
 
 import { AppComponent } from './app.component';
 import { CalendarComponent } from './calendar/calendar.component';
@@ -29,6 +30,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CreateComponent } from './create/create.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HistoryComponent } from './history/history.component';
+import { ProgressBarComponent } from './progress-bar/progress-bar.component';
 
 @NgModule({
   imports:      [ 
@@ -50,7 +52,8 @@ import { HistoryComponent } from './history/history.component';
     BrowserAnimationsModule,
     CommonModule,
     MatMenuModule,
-    NgxMatSelectSearchModule
+    NgxMatSelectSearchModule,
+    ProgressBarModule
   ],
   declarations: [ 
     AppComponent, 
@@ -61,7 +64,8 @@ import { HistoryComponent } from './history/history.component';
     ReadingDetailsComponent, 
     ReadingDetailsEditComponent, 
     CreateComponent, 
-    HistoryComponent 
+    HistoryComponent, 
+    ProgressBarComponent 
   ],
   providers:    [ ChapterReadService ], 
   bootstrap:    [ AppComponent ]
