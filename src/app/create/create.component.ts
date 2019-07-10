@@ -18,7 +18,7 @@ export class CreateComponent implements OnInit {
     });
   }
   addIssue(title, responsible, description, severity) {
-    this.chapterReadService.addIssue(title, responsible, description, severity).subscribe(() => {
+    this.chapterReadService.addChapterRead(title, title, title).subscribe(() => {
       alert("addIssue()");
     });
   }
