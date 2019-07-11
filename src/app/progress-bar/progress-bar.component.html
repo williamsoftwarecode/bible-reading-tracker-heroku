@@ -1,2 +1,32 @@
-<progress-bar [progress]="100" [color]="'#488aff'">
-</progress-bar>
+<div class="container">
+    <div class="row" *ngFor="let element of distinctBooks; let i = index">
+        <h4> {{ element }} ({{ chaptersOfDistinctBooks[i].length }}/{{ totalChaptersOfDistinctBooks[i] }}) </h4>
+        <div class="col-md-12">
+            <div class="progress"> 
+                <div class="progress-bar" 
+                role="progressbar" 
+                [style.width]="progressOfDistinctBooks[i]+'%'">
+                {{ progressOfDistinctBooks[i] | number:'1.1-1' }}%</div>
+            </div>
+        </div>
+    </div>
+</div>    
+
+
+
+<!-- <div *ngFor="let element of distinctBooks; let i = index">
+    <h4> {{ element }} </h4>
+    <progress-bar [progress]="progressOfDistinctBooks[i]" [color]="'#488aff'"></progress-bar>
+</div> -->
+
+<!-- <ul class="list-group"
+*ngFor="let cRead of chaptersRead">
+<h3>{{ cRead.date }}</h3>
+  <a 
+    class="list-group-item" 
+    style="cursor: pointer"
+    *ngFor="let element of cRead.read">
+    {{ element }}
+
+    </a>
+</ul> -->
