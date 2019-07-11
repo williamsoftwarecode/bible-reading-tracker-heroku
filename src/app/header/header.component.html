@@ -7,9 +7,10 @@
     <!-- <div class="collapse navbar-collapse"> -->
     <div class="navbar default">
       <ul class="nav navbar-nav">
-        <li><a href="#" (click)="OnSelect('calendar')">Calendar</a></li>
-        <li><a href="#" (click)="OnSelect('view-chart')">View Chart</a></li>
-        <li><a href="#" (click)="OnSelect('history')">History</a></li>
+        <li><a href="#" (click)="OnSelect('calendar')"><span class="glyphicon glyphicon-calendar"></span> Calendar</a></li>
+        <li><a href="#" (click)="OnSelect('view-chart')"><span class="glyphicon glyphicon-signal"></span> View Chart</a></li>
+        <li><a href="#" (click)="OnSelect('history')"><span class="glyphicon glyphicon-list"></span> History</a></li>
+        <!-- <mat-icon svgIcon="history-icon"></mat-icon>  -->
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li appDropdown class="dropdown">
