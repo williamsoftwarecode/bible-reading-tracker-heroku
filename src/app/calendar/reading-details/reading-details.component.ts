@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Chapter } from '../../shared/chapter.model'
 
 @Component({
@@ -10,6 +10,7 @@ export class ReadingDetailsComponent implements OnInit {
   @Input('inputYear') inputYear: number;
   @Input('inputMonth') inputMonth: string;
   @Input('inputDate') inputDate: number;
+  @Output() chapterReadAdded = new EventEmitter<{refresh: boolean}>();
 
   chaptersRead: Chapter[] = [
     new Chapter('Genesis', 1)
@@ -24,6 +25,9 @@ export class ReadingDetailsComponent implements OnInit {
     this.chaptersRead.push({
       book: chap.book,
       chapter: chap.chapter
+    });
+    this.chapterReadAdded.emit({
+      refresh: true
     });
   }
 

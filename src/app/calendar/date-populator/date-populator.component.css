@@ -1,3 +1,16 @@
+.highlight {
+    background-color: rgb(106, 240, 106);
+}
+
+.legend {
+    max-width: 170px;
+    text-align: left;
+}
+
+.legend-box {
+    border: solid 0.5px;
+}
+
 .select {
     cursor:pointer;
 }

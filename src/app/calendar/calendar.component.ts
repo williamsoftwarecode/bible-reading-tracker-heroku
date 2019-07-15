@@ -13,6 +13,7 @@ export class CalendarComponent implements OnInit {
   yearSelected: number = this.today.getFullYear();
   monthSelected: string = this.months[this.today.getMonth()];
   dateSelected: number = this.today.getDate();
+  refreshDatePopulator: boolean;
 
   constructor() { }
 
@@ -33,5 +34,9 @@ export class CalendarComponent implements OnInit {
 
   onDateSelectedOnCalendar(fullDate: {date: number, month: string, year: number}) {
     this.dateSelected = fullDate.date;
+  }
+
+  onAddChapterRead(chap: {refresh: boolean}) {
+    this.refreshDatePopulator = chap.refresh;
   }
 }

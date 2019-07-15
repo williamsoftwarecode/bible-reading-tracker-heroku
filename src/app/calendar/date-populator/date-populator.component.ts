@@ -1,4 +1,7 @@
 import { Component, OnInit, Input, DoCheck, Output, EventEmitter } from '@angular/core';
+import { ChapterReadService } from '../../shared/chapter-read.service';
+import { ChapterRead } from '../../shared/chapter-read.model'
+
 @Component({
   selector: 'app-date-populator',
   templateUrl: './date-populator.component.html',
@@ -9,6 +12,13 @@ export class DatePopulatorComponent implements OnInit {
   @Input('inputYear') inputYear: number;
   @Input('inputMonth') inputMonth: string;
   @Input('inputDate') inputDate: number;
+  @Input('refreshRequested') refreshRequested: boolean;
+
+  monthHighlight: number;
+  datesToHighlight: number[] = [];
+  displayedMonth: string;
+
+  chaptersRead: ChapterRead[] = [];
 
   dateSelected: number;
 
@@ -35,10 +45,14 @@ export class DatePopulatorComponent implements OnInit {
   century: number;
 
   displayedColumns: string[] = ['Sun', 'Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat'];
-  constructor() { }
+
+  constructor(private chapterReadService: ChapterReadService) { }
 
   ngOnInit() {
     this.dateSelected = this.inputDate;
+    this.displayedMonth = this.inputMonth;
+    this.fetchChapterRead();
+    this.refreshRequested = false;
   }
 
   onSelectDate(date: number) {
@@ -50,6 +64,21 @@ export class DatePopulatorComponent implements OnInit {
   }
 
   ngDoCheck() {
+    if (this.displayedMonth != this.inputMonth) {
+      this.datesToHighlight = [];
+      this.fetchChapterRead();
+      this.displayedMonth = this.inputMonth;
+    }
+
+    if (this.refreshRequested) {
+      setTimeout( () => { 
+        this.datesToHighlight = [];
+        this.fetchChapterRead();
+        this.displayedMonth = this.inputMonth; 
+      }, 500 );
+    }
+
+    this.refreshRequested = false;
     this.processDates();
   }
 
@@ -207,5 +236,95 @@ export class DatePopulatorComponent implements OnInit {
       month: this.inputMonth,
       year: this.inputYear
     });
+  }
+
+  fetchChapterRead() {
+    this.chapterReadService
+    .getIssues()
+    .subscribe((data: ChapterRead[]) => {
+      this.chaptersRead = data;
+      // console.log('Data requested ... ');
+      
+      for(var i=0; i<this.chaptersRead.length; i++) {
+        this.chaptersRead[i].date = this.convertStringToDate(this.chaptersRead[i].date);
+      }
+
+      // console.log(this.chaptersRead);
+      this.highlightReadDates();
+    });
+  }
+
+  convertStringToDate(dateString: Date) {
+    return new Date(dateString);
+  }
+
+  highlightReadDates() {
+    this.datesToHighlight = [];
+    this.chaptersRead.forEach(element => {
+      // console.log(element.date.getMonth());
+      this.processMonthForHighlight();
+      if (element.date.getMonth() === this.monthHighlight && element.date.getFullYear() === this.inputYear) {
+        this.datesToHighlight.push(element.date.getDate());
+      }
+    });
+    // console.log(this.datesToHighlight);
+  }
+
+  processMonthForHighlight() {
+    // Convert month to monthNum
+    switch(this.inputMonth) { 
+      case "January": { 
+        this.monthHighlight=0;
+        break; 
+      } 
+      case "February": { 
+        this.monthHighlight=1;
+        break; 
+      } 
+      case "March": { 
+        this.monthHighlight=2; 
+        break; 
+      } 
+      case "April": { 
+        this.monthHighlight=3; 
+        break; 
+      } 
+      case "May": { 
+        this.monthHighlight=4; 
+        break; 
+      } 
+      case "June": { 
+        this.monthHighlight=5; 
+        break; 
+      } 
+      case "July": { 
+        this.monthHighlight=6;
+        break; 
+      } 
+      case "August": { 
+        this.monthHighlight=7; 
+        break; 
+      } 
+      case "September": { 
+        this.monthHighlight=8; 
+        break; 
+      } 
+      case "October": { 
+        this.monthHighlight=9; 
+        break; 
+      } 
+      case "November": { 
+        this.monthHighlight=10; 
+        break; 
+      } 
+      case "December": { 
+        this.monthHighlight=11; 
+        break; 
+      } 
+      default: { 
+          ; 
+          break; 
+      } 
+    } 
   }
 }

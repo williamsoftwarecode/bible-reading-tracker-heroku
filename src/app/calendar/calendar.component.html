@@ -57,7 +57,8 @@
       (onSelecteDateOnCalendar)="onDateSelectedOnCalendar($event)"
       [inputYear]="yearSelected"
       [inputMonth]="monthSelected"
-      [inputDate]="dateSelected">
+      [inputDate]="dateSelected"
+      [refreshRequested]="refreshDatePopulator">
       </app-date-populator>
     </div>
   </div>     
@@ -65,6 +66,7 @@
     <app-reading-details
     [inputYear]="yearSelected"
     [inputMonth]="monthSelected"
-    [inputDate]="dateSelected"></app-reading-details>
+    [inputDate]="dateSelected"
+    (chapterReadAdded)="onAddChapterRead($event)"></app-reading-details>
   </div>
 </div>

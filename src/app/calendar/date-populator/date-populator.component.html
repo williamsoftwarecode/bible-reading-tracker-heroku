@@ -9,6 +9,7 @@
             [class.ripple]="allWeeks[0] !== null"
             [class.select]="allWeeks[0] !== null"
             [class.selected]="allWeeks[0] === dateSelected"
+            [class.highlight]="datesToHighlight.indexOf(allWeeks[0]) !== -1"
             (click)="onSelectDate(allWeeks[0])" 
             *matCellDef="let allWeeks"> 
             {{ allWeeks[0] }} </td>
@@ -21,6 +22,7 @@
             [class.ripple]="allWeeks[1] !== null"
             [class.select]="allWeeks[1] !== null" 
             [class.selected]="allWeeks[1] === dateSelected"
+            [class.highlight]="datesToHighlight.indexOf(allWeeks[1]) !== -1"
             (click)="onSelectDate(allWeeks[1])" 
             *matCellDef="let allWeeks"> 
             {{ allWeeks[1] }} </td>
@@ -33,6 +35,7 @@
             [class.ripple]="allWeeks[2] !== null"
             [class.select]="allWeeks[2] !== null" 
             [class.selected]="allWeeks[2] === dateSelected"
+            [class.highlight]="datesToHighlight.indexOf(allWeeks[2]) !== -1"
             (click)="onSelectDate(allWeeks[2])" 
             *matCellDef="let allWeeks"> 
             {{ allWeeks[2] }} </td>
@@ -45,6 +48,7 @@
             [class.ripple]="allWeeks[3] !== null"
             [class.select]="allWeeks[3] !== null" 
             [class.selected]="allWeeks[3] === dateSelected"
+            [class.highlight]="datesToHighlight.indexOf(allWeeks[3]) !== -1"
             (click)="onSelectDate(allWeeks[3])" 
             *matCellDef="let allWeeks"> 
             {{ allWeeks[3] }} </td>
@@ -57,6 +61,7 @@
             [class.ripple]="allWeeks[4] !== null"
             [class.select]="allWeeks[4] !== null" 
             [class.selected]="allWeeks[4] === dateSelected"
+            [class.highlight]="datesToHighlight.indexOf(allWeeks[4]) !== -1"
             (click)="onSelectDate(allWeeks[4])" 
             *matCellDef="let allWeeks"> 
             {{ allWeeks[4] }} </td>
@@ -69,6 +74,7 @@
             [class.ripple]="allWeeks[5] !== null"
             [class.select]="allWeeks[5] !== null"
             [class.selected]="allWeeks[5] === dateSelected"
+            [class.highlight]="datesToHighlight.indexOf(allWeeks[5]) !== -1"
             (click)="onSelectDate(allWeeks[5])"  
             *matCellDef="let allWeeks"> 
             {{ allWeeks[5] }} </td>
@@ -81,6 +87,7 @@
             [class.ripple]="allWeeks[6] !== null"
             [class.select]="allWeeks[6] !== null"
             [class.selected]="allWeeks[6] === dateSelected"
+            [class.highlight]="datesToHighlight.indexOf(allWeeks[6]) !== -1"
             (click)="onSelectDate(allWeeks[6])"  
             *matCellDef="let allWeeks"> 
             {{ allWeeks[6] }} </td>
@@ -89,6 +96,19 @@
         
           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
           <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+
+        <hr>
+
+        <table class="legend">
+          <tr>
+            <td class="highlight legend-box"></td>
+            <td>Reading Added</td>
+          </tr>
+          <tr>
+            <td class="selected legend-box"></td>
+            <td>Selected Date</td>
+          </tr>
         </table>
   </mat-card>
 </div>
